@@ -23,6 +23,10 @@ public class FantomCameraSettings : UdonSharpBehaviour
         Debug.Log(gameObject.name + "Is new target Camera");
         DJCameraManager.SetFantomCameraAsCam(fantomCamera);
     }
+    private void OnValidate()
+    {
+        EditiorOlnlySettings();
+    }
     public void FantomCameraSetUpSettings()
     {
         fantomCamera.meshRenderer.material.color = MaterialColor;
@@ -35,5 +39,15 @@ public class FantomCameraSettings : UdonSharpBehaviour
         fantomCamera.ButtonUiLabel.color = MaterialColor;
         fantomCamera.ButtonUiLabel.text = Label;
 
+    }
+    public  void EditiorOlnlySettings()
+    {
+        fantomCamera.floatingText.text.text = Label;
+        fantomCamera.floatingText.text.color = MaterialColor;
+        fantomCamera.TrackLocalPlayer = TrackLocalPlayer;
+
+        fantomCamera.CheckBoxOutlineImage.color = MaterialColor;
+        fantomCamera.ButtonUiLabel.color = MaterialColor;
+        fantomCamera.ButtonUiLabel.text = Label;
     }
 }

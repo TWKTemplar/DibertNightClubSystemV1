@@ -12,8 +12,8 @@ namespace Templar
         public BoxCollider RoomCollider;
         public int PlayersInRoom = 0;
 
-        public bool IsRoomLocked = false;
-        public bool ShowPlayerNames = false;
+        [UdonSynced] public bool IsRoomLocked = false;
+        [UdonSynced] public bool ShowPlayerNames = false;
 
         private VRCPlayerApi localPlayer;
 
@@ -33,6 +33,7 @@ namespace Templar
         {
             DoorOut.ShowOnlyNumberOfPlayers = !ShowPlayerNames;
             DoorIn.ShowOnlyNumberOfPlayers = !ShowPlayerNames;
+            RequestSerialization();
             if (IsRoomLocked)
             {
                 DoorOut.SetDoorLocked();
@@ -96,7 +97,7 @@ namespace Templar
             SendCustomEventDelayedSeconds("CalculatePlayersInRoom", 3);
             
         }
-        public void CheckIfRoomIsEmpty()
+        public void UnlockIfRoomIsEmpty()
         {
             if (localPlayer.isMaster)
             {
@@ -128,7 +129,7 @@ namespace Templar
             {
                 UIGen.GenerateUI(playersInRoom);//Generate player list UI
             }
-            CheckIfRoomIsEmpty();
+            UnlockIfRoomIsEmpty();
             UpdateDoorUI();
         }
         public void UpdateDoorUI()
@@ -172,6 +173,9 @@ namespace Templar
             }
             return false;
         }
-
+        public override void OnDeserialization()
+        {
+            UpdateRoomPreferances();
+        }
     }
 }

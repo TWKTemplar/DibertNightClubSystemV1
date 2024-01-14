@@ -1,0 +1,73 @@
+This Admin Panel script was created by Reimajo and is sold at https://reimajo.booth.pm/
+Please don't share or redistribute these asset files in any way.
+Only use them within your own VRChat worlds after you paid for them.
+
+#####################################################################################################
+##  There is a better online version of this documentation which might have new information:
+##  https://docs.google.com/document/d/1gh1osC2njNwgyel48KboBF9rc8KfogPUR0vS_KUE2DI/
+#####################################################################################################
+
+Watch this video tutorial first: https://www.youtube.com/watch?v=OqEmOEOdMp8
+This will explain how to set everything up.
+
+Script from Reimajo, purchased at https://reimajo.booth.pm/
+Join my Discord Server to receive update notifications & support for this asset: https://discord.gg/SWkNA394Mm
+There is a version of this tool available with advanced protection, see my discord for more details. 
+If you have any issues, please contact me on Discord or Booth or Twitter https://twitter.com/ReimajoChan
+
+There is a sample scene included which shows the general setup. 
+Simply copy the two objects (Sync + AdminTool) from this scene into your own scene as shown in the tutorial video.
+
+The code documentation can be found by hovering with the cursor above a field in the inspector and inside the script itself.
+
+-------------------------------------------------------------------------------------------------------------------
+
+To make users admins (can fly and ban people) or moderators (can only ban people), add them to the list inside the script file (PickupSync.cs). I can’t expose those to the inspector due to security reasons, you don’t wan’t mod users to have access to that. You can edit the script with any text editor, but using Visual Studio is recommended.
+
+You need to open the script and assign at least your own username to one of those lists, else the panel won’t be visible to you in game! Please also read all available security options and settings before using this asset in your world (described at the start of the PickupSync.cs script file). Most security options are disabled by default & must be enabled by you after acknowledging what they do & if you want them in your world.
+
+This is an example list with one user:
+
+private string[] _superSpecialSnowflakes = new string[] { "Sero Kaiju" };
+
+And with two users:
+
+private string[] _superSpecialSnowflakes = new string[] { "Sero Kaiju", "Reimajo" };
+
+All names are case sensitive and in “” and split with a ,
+
+-------------------------------------------------------------------------------------------------------------------
+
+Please make sure you have the newest SDK3-Worlds (https://vrchat.com/home/download) and UdonSharp (https://github.com/Merlin-san/UdonSharp/releases/latest) imported into your project if you use UdonSharp. In case you need to update your SDK or UdonSharp, please follow these steps:
+
+0. Enter Playmode in each scene. If there are compile errors, remove the scripts that have an issue first.
+
+1. Close the scene (e.g. by opening a new empty scene instead) and then close Unity (and Visual Studio if you have it open)
+
+2. Backup your whole Unity Project folder, e.g. by zipping it
+
+3. Delete the following files in "Assets":
+```
+VRCSDK.meta
+VRChat Examples.meta
+Udon.meta
+UdonSharp.meta
+```
+
+4. Delete those folders in "Assets":
+```
+VRCSDK
+VRChat Examples
+Udon
+UdonSharp
+```
+
+5. Open the project in Unity, ignore the console errors, DON'T open your world scene
+
+6. Import newest VRCSDK3 for worlds (https://vrchat.com/home/download)
+
+7. Import newest UdonSharp package (https://github.com/Merlin-san/UdonSharp/releases/latest)
+
+8. Enter playmode in each of your world scenes now (!)
+
+

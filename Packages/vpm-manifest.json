@@ -8,6 +8,9 @@
     },
     "com.vrchat.core.vpm-resolver": {
       "version": "0.1.27"
+    },
+    "deltaneverused.usppnet": {
+      "version": "0.0.2"
     }
   },
   "locked": {
@@ -24,6 +27,20 @@
     "com.vrchat.core.vpm-resolver": {
       "version": "0.1.27",
       "dependencies": {}
+    },
+    "deltaneverused.usppnet": {
+      "version": "0.0.2",
+      "dependencies": {
+        "com.vrchat.udonsharp": "1.x.x",
+        "deltaneverused.uspppatcher": "0.0.1",
+        "com.vrchat.worlds": "3.5.0"
+      }
+    },
+    "deltaneverused.uspppatcher": {
+      "version": "0.0.1",
+      "dependencies": {
+        "com.vrchat.worlds": "3.5.0"
+      }
     }
   }
 }

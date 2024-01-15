@@ -9,7 +9,9 @@ using VRC.SDK3.Data;
 namespace Dilbert {
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class PrivateRoom : UdonSharpBehaviour {
-        public PlayerVoiceManager voiceManager;
+        [NonSerialized] public BoxCollider col; 
+        
+        public PrivateRoomManager privateRoomManager;
         
         [UdonSynced, FieldChangeCallback(nameof(MutePlayersOutside))]
         public bool mutePlayersOutside;
@@ -19,13 +21,14 @@ namespace Dilbert {
         public bool MutePlayersOutside {
             set {
                 mutePlayersOutside = value;
-                voiceManager.UpdateRoomSettings(this, mutePlayersOutside);
+                privateRoomManager.UpdateRoomSettings(this, mutePlayersOutside, blackoutRoom);
             }
             get => mutePlayersOutside;
         }
         public bool BlackoutRoom {
             set {
                 blackoutRoom = value;
+                privateRoomManager.UpdateRoomSettings(this, mutePlayersOutside, blackoutRoom);
             }
             get => blackoutRoom;
         }
@@ -35,7 +38,12 @@ namespace Dilbert {
         private bool _isLocalPlayerInRoom;
 
         public void Start() {
-            voiceManager.UpdateRoomSettings(this, mutePlayersOutside);
+            col = GetComponent<BoxCollider>();
+            SendCustomEventDelayedFrames(nameof(LateUpdate), 10);
+        }
+
+        public void LateUpdate() {
+            privateRoomManager.UpdateRoomSettings(this, mutePlayersOutside, blackoutRoom);
         }
 
         public override void OnPlayerLeft(VRCPlayerApi player) {
@@ -59,7 +67,7 @@ namespace Dilbert {
                 _isLocalPlayerInRoom = true;
             
             _playersInside.Add(playerDataToken);
-            voiceManager.SetPlayerLocation(player, this);
+            privateRoomManager.SetPlayerLocation(player, this);
         }
         private void PlayerLeftRoom(VRCPlayerApi player) {
             if (player.isLocal)
@@ -69,7 +77,7 @@ namespace Dilbert {
             var wasPlayerInRoom = _playersInside.Contains(playerDataToken);
 
             if (wasPlayerInRoom) {
-                voiceManager.SetPlayerLocationNone(player);
+                privateRoomManager.SetPlayerLocationNone(player);
                 if (_isLocalPlayerInRoom) {
                     
                 }

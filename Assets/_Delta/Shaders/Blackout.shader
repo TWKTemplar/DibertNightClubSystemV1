@@ -91,8 +91,6 @@ Shader "Delta/Blackout"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX( i );
-            	
                 float perspectiveDivide = 1.f / i.vertex.w;
 				float4 rayFromCamera = i.rayFromCamera * perspectiveDivide;
 				float2 depthTextureGrabPos = i.depthTextureGrabPos.xy * perspectiveDivide;

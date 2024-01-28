@@ -11,6 +11,7 @@ namespace CyBar
     {
 
         [Header("Settings")]
+        public bool IsNetworkSynced = false;
         public bool IsToggleButton = false;
         public Color SelectedImageColor = Color.red;
         public bool ColorOutline = false;
@@ -23,7 +24,7 @@ namespace CyBar
         [Header("Internal Read only")]
         public float buttonpressedTime;//goes to 0 and then sets the IsSelected To true
         public Color SelectedTextColor = new Color(0.5f,0.5f,0.5f);
-        public bool IsSelected = false;
+        [UdonSynced] public bool IsSelected = false;
         // Internal
         private void Update()
         {
@@ -32,17 +33,34 @@ namespace CyBar
                 buttonpressedTime -= Time.deltaTime;
                 if(buttonpressedTime <= 0)
                 {
-                    IsSelected = false;
                     SetSelected(false);
                 }
             }
         }
         public void SetSelected(bool isSelected)
         {
+
+            if(isSelected == IsSelected)
+            {
+                Debug.Log("Input already matches output, Exiting");
+                return;
+            }
+
+            Debug.Log("Set selected to " + isSelected);
             if(isSelected && !IsToggleButton) buttonpressedTime = ButtonPressedLengthInSeconds;
             if (!isSelected) buttonpressedTime = 0;
+            ColorUI(isSelected);
             IsSelected = isSelected;
-            ColorUI(IsSelected);
+
+            if (IsNetworkSynced)
+            {
+                Networking.SetOwner(Networking.LocalPlayer, gameObject);
+                RequestSerialization();
+            }
+        }
+        public override void OnDeserialization()
+        {
+           
         }
         public bool GetSelected()
         {

@@ -9,68 +9,101 @@ namespace Dilbert
 
     public class Synced30SecondTimer : UdonSharpBehaviour
     {
+        [Header("Settings")]
+        [UdonSynced] public int MaxTimer;
         [Header("Ref")]
         public AudioSource AlarmAudioSource;
         public TMPro.TextMeshProUGUI Text;
-        [Header("Settings")]
-        [UdonSynced] public int MaxTimer;
+        public CyBar.UISingleButton MainButton;
         [Header("Data")]
         public float CurrentTimer;
         public bool TimerCountingDown;
-        public void IncreaseTimer()
+        private VRCPlayerApi localPlayer;
+        public void Start()
         {
-            if (TimerCountingDown == true) return;
-            Networking.SetOwner(Networking.LocalPlayer, gameObject);
-            MaxTimer = Mathf.Clamp(MaxTimer - 5, 5, 60);
-            UpdateText();
-            RequestSerialization();
-        }
-        public void DecreaseTimer()
-        {
-            if (TimerCountingDown == true) return;
-            Networking.SetOwner(Networking.LocalPlayer, gameObject);
-            MaxTimer = Mathf.Clamp(MaxTimer + 5, 5, 60);
-            UpdateText();
-            RequestSerialization();
-        }
-        public override void OnDeserialization()
-        {
+            localPlayer = Networking.LocalPlayer;
             UpdateText();
         }
-        public void MainButtonPressed()
+        private void OnValidate()
         {
-            if (TimerCountingDown) SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "StopTimer");
-            else SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "StartTimer");
+            UpdateText();
         }
         public void Update()
         {
             if (TimerCountingDown == true)
             {
-                Text.text = Mathf.RoundToInt(CurrentTimer).ToString();
+                UpdateText();
                 CurrentTimer -= Time.deltaTime;
-                if(CurrentTimer <= 0)
+                if (CurrentTimer <= 0)
                 {
                     StopTimer();
                     AlarmAudioSource.Play();
                 }
             }
         }
+
+        #region External Buttons
+        public void IncreaseTimer()
+        {
+            MakeOwner();
+            if (TimerCountingDown == true) return;
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+            MaxTimer = Mathf.Clamp(MaxTimer + 5, 5, 60);
+            UpdateText();
+            RequestSerialization();
+        }
+        public void DecreaseTimer()
+        {
+            MakeOwner();
+            if (TimerCountingDown == true) return;
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+            MaxTimer = Mathf.Clamp(MaxTimer - 5, 5, 60);
+            UpdateText();
+            RequestSerialization();
+        }
+        public void MainButtonPressed()
+        {
+            MakeOwner();
+            if (TimerCountingDown) SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "StopTimer");
+            else SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "StartTimer");
+        }
+        #endregion
+        
+        #region Networking Calls
+        public override void OnDeserialization()
+        {
+            UpdateText();
+        }
         public void StartTimer()
         {
             TimerCountingDown = true;
             CurrentTimer = (float)MaxTimer;
             UpdateText();
+            MainButton.SetSelected(true);
+            AlarmAudioSource.Play();
         }
         public void StopTimer()
         {
             TimerCountingDown = false;
             CurrentTimer = (float)MaxTimer;
             UpdateText();
+            MainButton.SetSelected(false);
+            AlarmAudioSource.Stop();
         }
+        #endregion
 
+        #region Easy to read functions
+        public void MakeOwner()
+        {
+            Networking.SetOwner(localPlayer, gameObject);
+        }
         private void UpdateText()
         {
-            Text.text = Mathf.RoundToInt(MaxTimer).ToString();
+            float time = MaxTimer;
+            if (TimerCountingDown) time = CurrentTimer;
+
+            Text.text = Mathf.RoundToInt(time).ToString();
         }
+        #endregion
     }
 }

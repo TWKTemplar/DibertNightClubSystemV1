@@ -4,7 +4,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
-namespace Templar
+namespace Dilbert
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class RoomCollider : UdonSharpBehaviour

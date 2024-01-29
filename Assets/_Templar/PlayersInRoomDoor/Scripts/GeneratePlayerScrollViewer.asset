@@ -21,7 +21,7 @@ MonoBehaviour:
   compiledVersion: 2
   behaviourSyncMode: 0
   hasInteractEvent: 0
-  scriptID: -806623249437328429
+  scriptID: -532328339179663548
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -62,7 +62,7 @@ MonoBehaviour:
       Data: 3|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: HidePlayerManager, Assembly-CSharp
+      Data: Dilbert.HidePlayerManager, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 

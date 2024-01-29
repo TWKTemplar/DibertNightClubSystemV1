@@ -21,7 +21,7 @@ MonoBehaviour:
   compiledVersion: 2
   behaviourSyncMode: 0
   hasInteractEvent: 0
-  scriptID: -3595394741582758341
+  scriptID: 3813311866416858292
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -62,7 +62,7 @@ MonoBehaviour:
       Data: 3|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: PlayerSelectionBuilder, Assembly-CSharp
+      Data: Dilbert.PlayerSelectionBuilder, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
@@ -131,7 +131,7 @@ MonoBehaviour:
       Data: 8|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: HandMenu, Assembly-CSharp
+      Data: Dilbert.HandMenu, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 

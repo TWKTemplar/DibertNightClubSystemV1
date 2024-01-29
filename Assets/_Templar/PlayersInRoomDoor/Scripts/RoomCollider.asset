@@ -21,7 +21,7 @@ MonoBehaviour:
   compiledVersion: 2
   behaviourSyncMode: 1
   hasInteractEvent: 0
-  scriptID: 4568143044568447267
+  scriptID: 882286430435425427
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -62,7 +62,7 @@ MonoBehaviour:
       Data: 3|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: Templar.RoomManager, Assembly-CSharp
+      Data: Dilbert.RoomManager, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 

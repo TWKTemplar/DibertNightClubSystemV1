@@ -5,53 +5,55 @@ using VRC.SDKBase;
 using VRC.Udon;
 using UnityEngine.UI;
 
-
-public class Clock : UdonSharpBehaviour
+namespace Dilbert
 {
-
-    private Text time;
-    private Text date;
-    public bool is24h = true;
-
-    void Start()
+    public class Clock : UdonSharpBehaviour
     {
-        transform.Find("Welcome").GetComponent<Text>().text = string.Format("Welcome, {0}!", Networking.LocalPlayer.displayName);
-        time = transform.Find("Time").GetComponent<Text>();
-        date = transform.Find("Date").GetComponent<Text>();
-    }
 
+        private Text time;
+        private Text date;
+        public bool is24h = true;
 
-    private void FixedUpdate()
-    {
-        System.DateTime datetime;
-        datetime = System.DateTime.Now;
-        string ampm = string.Empty;
-        if (is24h)
+        void Start()
         {
-            time.text = string.Format("{0:00}:{1:00}:{2:00}", datetime.Hour, datetime.Minute, datetime.Second);
+            transform.Find("Welcome").GetComponent<Text>().text = string.Format("Welcome, {0}!", Networking.LocalPlayer.displayName);
+            time = transform.Find("Time").GetComponent<Text>();
+            date = transform.Find("Date").GetComponent<Text>();
         }
-        else
+
+
+        private void FixedUpdate()
         {
-            if (datetime.Hour < 13)
+            System.DateTime datetime;
+            datetime = System.DateTime.Now;
+            string ampm = string.Empty;
+            if (is24h)
             {
-                ampm = "AM";
-                time.text = string.Format("{0:00}:{1:00}:{2:00} {3}", datetime.Hour, datetime.Minute, datetime.Second, ampm);
+                time.text = string.Format("{0:00}:{1:00}:{2:00}", datetime.Hour, datetime.Minute, datetime.Second);
             }
             else
             {
-                ampm = "PM";
-                time.text = string.Format("{0:00}:{1:00}:{2:00} {3}", datetime.Hour-12, datetime.Minute, datetime.Second, ampm);
+                if (datetime.Hour < 13)
+                {
+                    ampm = "AM";
+                    time.text = string.Format("{0:00}:{1:00}:{2:00} {3}", datetime.Hour, datetime.Minute, datetime.Second, ampm);
+                }
+                else
+                {
+                    ampm = "PM";
+                    time.text = string.Format("{0:00}:{1:00}:{2:00} {3}", datetime.Hour - 12, datetime.Minute, datetime.Second, ampm);
+                }
             }
+            date.text = string.Format("{0}/{1}/{2} {3}", datetime.Year, datetime.Month, datetime.Day, datetime.DayOfWeek.ToString());
         }
-        date.text = string.Format("{0}/{1}/{2} {3}", datetime.Year, datetime.Month, datetime.Day, datetime.DayOfWeek.ToString());
+
+        public void Toggle12And24()
+        {
+            is24h = !is24h;
+        }
+
+
+
+
     }
-
-    public void Toggle12And24()
-    {
-        is24h = !is24h;
-    }
-
-
-
-
 }

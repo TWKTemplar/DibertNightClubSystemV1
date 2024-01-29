@@ -17,6 +17,10 @@ Shader "UI/TemplarUIV2"
         _StencilWriteMask("Stencil Write Mask", Float) = 255
         _StencilReadMask("Stencil Read Mask", Float) = 255
 
+        [Toggle(UseOverlayTexture)] _UseOverlayTexture("Use Overlay Texture", Float) = 0
+        _OverlayTexture("Overlay Texture", 2D) = "white" {}
+        _Dimmer("Dimmer", Range(0,1)) = 0
+
         _ColorMask("Color Mask", Float) = 15
             _Emission("Emission", Float) = 0 // Added By Templar
             _EmissionTintOverride("Tint Override Emmision boost", Float) = 0 // Added By Templar
@@ -65,6 +69,7 @@ Shader "UI/TemplarUIV2"
 
                 #pragma multi_compile_local _ UNITY_UI_CLIP_RECT
                 #pragma multi_compile_local _ UNITY_UI_ALPHACLIP
+                #pragma multi_compile_local _ UseOverlayTexture// Added by Templar
                 #pragma multi_compile_local _ SaturateForClip // Added by Templar
                 #pragma multi_compile_local _ TintOverride// Added by Templar
 
@@ -86,12 +91,15 @@ Shader "UI/TemplarUIV2"
                 };
 
                 sampler2D _MainTex;
+                sampler2D _OverlayTexture;
                 fixed4 _Color1;
                 fixed4 _Color2;
                 fixed4 _TextureSampleAdd;
                 float4 _ClipRect;
                 float4 _MainTex_ST;
+                float4 _OverlayTexture_ST;
                 float _Emission;
+                float _Dimmer;
                 float _EmissionTintOverride;
                 uniform float3 _UVOffset;
                 uniform float3 _UVScale;
@@ -177,6 +185,17 @@ Shader "UI/TemplarUIV2"
                     color += color * _EmissionTintOverride * ColorLerp * GreyscaleOfTint;
                     #endif
                     
+                    #ifdef UseOverlayTexture
+                    float2 uvboi = IN.worldPosition*0.025f;
+                    float speed = 0.05f;
+                    uvboi.x += _Time.x * speed;
+                    uvboi.y += _Time.y * speed;
+                    //uvboi.y *= _Time.y;
+                    color.rgb *= _Dimmer;
+                    float4 tempcol = tex2D(_OverlayTexture, uvboi);
+                    color.rgb *= 1-(tempcol*0.2f);
+
+                    #endif
 
 
                     //Bloom and Clamp Alpha

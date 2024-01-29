@@ -1,59 +1,62 @@
 ﻿using UnityEngine;
 using System.IO;
-
-public class ListInit : MonoBehaviour
+namespace Dilbert
 {
-    public string whitelistFilePath; // Path to the text document
-    public string blacklistFilePath; // Path to the text document
-    public string adminListFilePath; // Path to the text document
-    public string staffListFilePath; // Path to the text document
-    public string VIPListFilePath; // Path to the text document
-
-    [HideInInspector] public string[] whiteList; // Array to store the usernames
-    [HideInInspector] public string[] blackList; // Array to store the usernames
-    [HideInInspector] public string[] adminList; // Array to store the usernames
-    [HideInInspector] public string[] staffList; // Array to store the usernames
-    [HideInInspector] public string[] VIPList; // Array to store the usernames
-
-    private void Start()
+    public class ListInit : MonoBehaviour
     {
-        Debug.Log(" ===== whiteList Usernames: ===== ");
-        whiteList = ReadFilelist(whitelistFilePath);
-        
-        Debug.Log(" ===== blackList Usernames: ===== ");
-        blackList = ReadFilelist(blacklistFilePath);
-        
-        Debug.Log(" ===== adminList Usernames: ===== ");
-        adminList = ReadFilelist(adminListFilePath);
-        
-        Debug.Log(" ===== staffList Usernames: ===== ");
-        staffList = ReadFilelist(staffListFilePath);
-        
-        Debug.Log(" ===== VIPList Usernames: ===== ");
-        VIPList   = ReadFilelist(VIPListFilePath);
+        public bool DoDebug = true;
+        public string whitelistFilePath; // Path to the text document
+        public string blacklistFilePath; // Path to the text document
+        public string adminListFilePath; // Path to the text document
+        public string staffListFilePath; // Path to the text document
+        public string VIPListFilePath; // Path to the text document
 
-    }
+        [HideInInspector] public string[] whiteList; // Array to store the usernames
+        [HideInInspector] public string[] blackList; // Array to store the usernames
+        [HideInInspector] public string[] adminList; // Array to store the usernames
+        [HideInInspector] public string[] staffList; // Array to store the usernames
+        [HideInInspector] public string[] VIPList; // Array to store the usernames
 
-    private string[] ReadFilelist(string _FilePath)
-    {
-        // Check if the text file exists
-        if (File.Exists(_FilePath))
+        private void Start()
         {
-            // Read all lines from the text file
-            string[] lines = File.ReadAllLines(_FilePath);
+            if(DoDebug) Debug.Log(" ===== whiteList Usernames: ===== ");
+            whiteList = ReadFilelist(whitelistFilePath);
 
-            // Output the usernames to the console
-            foreach (string username in lines)
-            {
-                Debug.Log("Username: " + username);
-            }
+            if (DoDebug) Debug.Log(" ===== blackList Usernames: ===== ");
+            blackList = ReadFilelist(blacklistFilePath);
 
-            return lines;
+            if (DoDebug) Debug.Log(" ===== adminList Usernames: ===== ");
+            adminList = ReadFilelist(adminListFilePath);
+
+            if (DoDebug) Debug.Log(" ===== staffList Usernames: ===== ");
+            staffList = ReadFilelist(staffListFilePath);
+
+            if (DoDebug) Debug.Log(" ===== VIPList Usernames: ===== ");
+            VIPList = ReadFilelist(VIPListFilePath);
+
         }
-        else
+
+        private string[] ReadFilelist(string _FilePath)
         {
-            Debug.LogError("Text file not found: " + _FilePath);
-            return new string[0];
+            // Check if the text file exists
+            if (File.Exists(_FilePath))
+            {
+                // Read all lines from the text file
+                string[] lines = File.ReadAllLines(_FilePath);
+
+                // Output the usernames to the console
+                foreach (string username in lines)
+                {
+                    if (DoDebug) Debug.Log("Username: " + username);
+                }
+
+                return lines;
+            }
+            else
+            {
+                if (DoDebug) Debug.LogError("Text file not found: " + _FilePath);
+                return new string[0];
+            }
         }
     }
 }

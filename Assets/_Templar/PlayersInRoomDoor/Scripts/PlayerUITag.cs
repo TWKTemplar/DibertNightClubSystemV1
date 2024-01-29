@@ -4,7 +4,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 using UnityEngine.UI;
-namespace Templar
+namespace Dilbert
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class PlayerUITag : UdonSharpBehaviour

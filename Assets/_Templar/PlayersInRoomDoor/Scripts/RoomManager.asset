@@ -21,7 +21,7 @@ MonoBehaviour:
   compiledVersion: 2
   behaviourSyncMode: 0
   hasInteractEvent: 0
-  scriptID: -7016900443052290447
+  scriptID: 3926282837088700824
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -62,7 +62,7 @@ MonoBehaviour:
       Data: 3|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: Templar.GeneratePlayerScrollViewer[], Assembly-CSharp
+      Data: Dilbert.GeneratePlayerScrollViewer[], Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
@@ -398,7 +398,7 @@ MonoBehaviour:
       Data: 23|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: Templar.TeleportDoor, Assembly-CSharp
+      Data: Dilbert.TeleportDoor, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 

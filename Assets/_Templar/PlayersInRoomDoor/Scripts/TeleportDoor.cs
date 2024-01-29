@@ -4,7 +4,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 using TMPro;
-namespace Templar
+namespace Dilbert
 {
     public class TeleportDoor : UdonSharpBehaviour
     {

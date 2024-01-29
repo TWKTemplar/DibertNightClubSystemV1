@@ -12,7 +12,7 @@ namespace jokerispunk
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class HiddenPlayerManager : UdonSharpBehaviour
     {
-        [UdonSynced] private int[] hiddenPlayers = { 0 };
+        [UdonSynced] public int[] hiddenPlayers = { 0 };
         public TextMeshProUGUI hideTipText;
         public Image hideCheckmark;
         private VRCPlayerApi lp;

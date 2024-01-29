@@ -688,7 +688,6 @@ MonoBehaviour:
   image: {fileID: 0}
   imageOutline: {fileID: 2794513842204161659}
   text: {fileID: 2564551670080278626}
-  buttonpressedTime: 0
   IsSelected: 0
 --- !u!114 &3909115890517473567
 MonoBehaviour:
@@ -817,7 +816,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5838796968750852810}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.29, y: 1.311, z: 0.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1533,13 +1532,12 @@ MonoBehaviour:
   FlipColors: 0
   IsToggleButton: 0
   ColorOutline: 0
-  ButtonPressedLengthInSeconds: 0.25
+  ButtonPressedLengthInSeconds: 0.1
   SelectedImageColor: {r: 1, g: 0, b: 0, a: 1}
   SelectedTextColor: {r: 0.28235295, g: 0.28235295, b: 0.28235295, a: 1}
   image: {fileID: 0}
   imageOutline: {fileID: 879120160123774587}
   text: {fileID: 357434998315218126}
-  buttonpressedTime: 0
   IsSelected: 0
 --- !u!114 &8425524502679995249
 MonoBehaviour:
@@ -1881,13 +1879,12 @@ MonoBehaviour:
   FlipColors: 0
   IsToggleButton: 0
   ColorOutline: 0
-  ButtonPressedLengthInSeconds: 0.25
+  ButtonPressedLengthInSeconds: 0.1
   SelectedImageColor: {r: 1, g: 0, b: 0, a: 1}
   SelectedTextColor: {r: 0.28235295, g: 0.28235295, b: 0.28235295, a: 1}
   image: {fileID: 0}
   imageOutline: {fileID: 3811065181157457394}
   text: {fileID: 3518277885662355141}
-  buttonpressedTime: 0
   IsSelected: 0
 --- !u!114 &1704529774993620402
 MonoBehaviour:

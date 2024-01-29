@@ -25,36 +25,25 @@ namespace CyBar
         public TMPro.TextMeshProUGUI text;
 
         [Header("Internal Read only")]
-        public float buttonpressedTime;//goes to 0 and then sets the IsSelected To true
         public bool IsSelected = false;
         public void Start()
         {
             if(UpdateColorUIOnStart) ColorUI(IsSelected);
         }
-        // Internal
-        private void Update()
+        public void NonToggleButtonReset()
         {
-            if (IsSelected && !IsToggleButton)
-            {
-                buttonpressedTime -= Time.deltaTime;
-                if(buttonpressedTime <= 0)
-                {
-                    SetSelected(false);
-                }
-            }
+            SetSelected(false);
         }
         public void SetSelected(bool isSelected)
         {
             ColorUI(isSelected);
             if(IsSelected == isSelected)
             {
-                Debug.Log("Already That selection type");
+                
                 return;
             }
-            if(isSelected && !IsToggleButton) buttonpressedTime = ButtonPressedLengthInSeconds;
-            if (!isSelected) buttonpressedTime = 0;
+            if(isSelected && !IsToggleButton) SendCustomEventDelayedSeconds("NonToggleButtonReset", ButtonPressedLengthInSeconds);
             IsSelected = isSelected;
-            Debug.Log("Set selected to " + isSelected);
         }
         private void ColorUI(bool isSelected)
         {

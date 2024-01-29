@@ -1990,6 +1990,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6226068590035503410, guid: d7b2edb2e1652104cb0a6efb5596da54,
         type: 3}
+    - target: {fileID: 6226068590035503410, guid: d7b2edb2e1652104cb0a6efb5596da54,
+        type: 3}
+      propertyPath: ButtonPressedLengthInSeconds
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6867636166255100984, guid: d7b2edb2e1652104cb0a6efb5596da54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2046,6 +2051,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7283579383898174664, guid: d7b2edb2e1652104cb0a6efb5596da54,
         type: 3}
+    - target: {fileID: 7283579383898174664, guid: d7b2edb2e1652104cb0a6efb5596da54,
+        type: 3}
+      propertyPath: ButtonPressedLengthInSeconds
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8891476295832832875, guid: d7b2edb2e1652104cb0a6efb5596da54,
         type: 3}
       propertyPath: serializationData.Prefab

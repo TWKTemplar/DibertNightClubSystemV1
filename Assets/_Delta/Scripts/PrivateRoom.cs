@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -31,6 +32,21 @@ namespace Dilbert {
                 privateRoomManager.UpdateRoomSettings(this, mutePlayersOutside, blackoutRoom);
             }
             get => blackoutRoom;
+        }
+
+        /// <summary>
+        /// Hello templar!!
+        /// this is the function you want to call to change the settings of the room.
+        /// </summary>
+        /// <param name="isOutSideMuted">It's the THING!</param>
+        /// <param name="isBlackedOut">YEAAA</param>
+        [PublicAPI]
+        public void ChangeSettings(bool isOutSideMuted, bool isBlackedOut) {
+            MutePlayersOutside = isOutSideMuted;
+            BlackoutRoom = isBlackedOut;
+            
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+            RequestSerialization();
         }
 
         private DataList _playersInside = new DataList();

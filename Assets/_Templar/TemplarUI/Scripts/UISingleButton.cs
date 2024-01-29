@@ -11,11 +11,14 @@ namespace CyBar
     {
 
         [Header("Settings")]
-        public bool IsNetworkSynced = false;
+        public bool UpdateColorUIOnStart = true;
+        public bool FlipColors = false;
         public bool IsToggleButton = false;
-        public Color SelectedImageColor = Color.red;
         public bool ColorOutline = false;
         public float ButtonPressedLengthInSeconds = 0.25f;
+        [Header("Colors")]
+        public Color SelectedImageColor = Color.red;
+        public Color SelectedTextColor = new Color(0.5f,0.5f,0.5f);
         [Header("Ref")]
         public Image image;
         public Image imageOutline;
@@ -23,8 +26,11 @@ namespace CyBar
 
         [Header("Internal Read only")]
         public float buttonpressedTime;//goes to 0 and then sets the IsSelected To true
-        public Color SelectedTextColor = new Color(0.5f,0.5f,0.5f);
-        [UdonSynced] public bool IsSelected = false;
+        public bool IsSelected = false;
+        public void Start()
+        {
+            if(UpdateColorUIOnStart) ColorUI(IsSelected);
+        }
         // Internal
         private void Update()
         {
@@ -39,40 +45,26 @@ namespace CyBar
         }
         public void SetSelected(bool isSelected)
         {
-
-            if(isSelected == IsSelected)
+            ColorUI(isSelected);
+            if(IsSelected == isSelected)
             {
-                Debug.Log("Input already matches output, Exiting");
+                Debug.Log("Already That selection type");
                 return;
             }
-
-            Debug.Log("Set selected to " + isSelected);
             if(isSelected && !IsToggleButton) buttonpressedTime = ButtonPressedLengthInSeconds;
             if (!isSelected) buttonpressedTime = 0;
-            ColorUI(isSelected);
             IsSelected = isSelected;
-
-            if (IsNetworkSynced)
-            {
-                Networking.SetOwner(Networking.LocalPlayer, gameObject);
-                RequestSerialization();
-            }
-        }
-        public override void OnDeserialization()
-        {
-           
-        }
-        public bool GetSelected()
-        {
-            return IsSelected;
+            Debug.Log("Set selected to " + isSelected);
         }
         private void ColorUI(bool isSelected)
         {
+            if (FlipColors) isSelected = !isSelected;
+
             if (text!=null) text.color = Color.white;
             if (image != null) image.color = Color.white;
             if (imageOutline != null) imageOutline.color = Color.white;
 
-            if (IsSelected)
+            if (isSelected)
             {
                 if (text != null) text.color = SelectedTextColor;
                 if (image != null) image.color = SelectedImageColor;
@@ -80,16 +72,15 @@ namespace CyBar
             }
         }
         //External Ref calls from UI
-        public void ResetButton() { SetSelected(false); }
         public override void Interact() 
         {
-            if (!IsToggleButton)
+            if (IsToggleButton)
             {
-                SetSelected(true);
+                SetSelected(!IsSelected);
             }
             else
             {
-                SetSelected(!GetSelected());
+                SetSelected(true);
             }
         }
     }

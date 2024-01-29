@@ -2,9 +2,7 @@
 using JetBrains.Annotations;
 using UdonSharp;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VRC.SDKBase;
-using VRC.SDK3.Data;
 
 // ReSharper disable once CheckNamespace
 namespace Dilbert {
@@ -48,9 +46,7 @@ namespace Dilbert {
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
             RequestSerialization();
         }
-
-        private DataList _playersInside = new DataList();
-
+        
         private bool _isLocalPlayerInRoom;
 
         public void Start() {
@@ -62,11 +58,6 @@ namespace Dilbert {
             privateRoomManager.UpdateRoomSettings(this, mutePlayersOutside, blackoutRoom);
         }
 
-        public override void OnPlayerLeft(VRCPlayerApi player) {
-            var playerDataToken = new DataToken(player);
-            _playersInside.Remove(playerDataToken);
-        }
-
         public override void OnPlayerRespawn(VRCPlayerApi player) {
             PlayerLeftRoom(player);
         }
@@ -75,35 +66,14 @@ namespace Dilbert {
         }
         
         public override void OnPlayerTriggerEnter(VRCPlayerApi player) {
-            var playerDataToken = new DataToken(player);
-            if (_playersInside.Contains(playerDataToken))
-                return;
-
             if (player.isLocal)
                 _isLocalPlayerInRoom = true;
-            
-            _playersInside.Add(playerDataToken);
             privateRoomManager.SetPlayerLocation(player, this);
         }
         private void PlayerLeftRoom(VRCPlayerApi player) {
             if (player.isLocal)
                 _isLocalPlayerInRoom = false;
-            
-            var playerDataToken = new DataToken(player);
-            var wasPlayerInRoom = _playersInside.Contains(playerDataToken);
-
-            if (wasPlayerInRoom) {
-                privateRoomManager.SetPlayerLocationNone(player);
-                if (_isLocalPlayerInRoom) {
-                    
-                }
-                else {
-                    
-                }
-            }
-            
-            
-            _playersInside.Remove(playerDataToken);
+            privateRoomManager.SetPlayerLocationNone(player);
         }
     }
 }

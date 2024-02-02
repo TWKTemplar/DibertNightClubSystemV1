@@ -16,9 +16,12 @@ namespace CyBar
         public bool IsToggleButton = false;
         public bool ColorOutline = false;
         public float ButtonPressedLengthInSeconds = 0.25f;
-        [Header("Colors")]
+        [Header("Colors Selected")]
         public Color SelectedImageColor = Color.red;
         public Color SelectedTextColor = new Color(0.5f,0.5f,0.5f);
+        [Header("Colors DeSelected")]
+        public Color DeSelectedImageColor = Color.white;
+        public Color DeSelectedTextColor = Color.white;
         [Header("Ref")]
         public Image image;
         public Image imageOutline;
@@ -49,9 +52,9 @@ namespace CyBar
         {
             if (FlipColors) isSelected = !isSelected;
 
-            if (text!=null) text.color = Color.white;
-            if (image != null) image.color = Color.white;
-            if (imageOutline != null) imageOutline.color = Color.white;
+            if (text!=null) text.color = DeSelectedTextColor;
+            if (image != null) image.color = DeSelectedImageColor;
+            if (imageOutline != null) imageOutline.color = DeSelectedImageColor;
 
             if (isSelected)
             {

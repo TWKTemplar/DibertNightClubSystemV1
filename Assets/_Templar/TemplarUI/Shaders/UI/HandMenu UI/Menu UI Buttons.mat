@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HandMenuUI Lower UI
+  m_Name: Menu UI Buttons
   m_Shader: {fileID: 4800000, guid: 7a48ab39d73f3a347b293d10dd19c67b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -35,9 +35,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BaseContrast: 0.479
+    - _BaseContrast: 0.128
     - _ColorMask: 15
-    - _Dimmer: 0.706
+    - _Dimmer: 0.892
     - _DoSatOverride: 0
     - _Emission: 0.2
     - _EmissionTintOverride: 15
@@ -47,16 +47,18 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _UseColorLerp: 0.69
+    - _Transparency: 0
+    - _Transparent: 0.107
+    - _UseColorLerp: 0.721
     - _UseLerp: 0.721
-    - _UseOverlayLerp: 0.892
+    - _UseOverlayLerp: 0.721
     - _UseOverlayTexture: 1
     - _UseUIAlphaClip: 1
     - _gradient: 4.43
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0, g: 0.5739576, b: 0.7924528, a: 1}
-    - _Color2: {r: 0.03604485, g: 0.24859968, b: 0.509434, a: 1}
+    - _Color2: {r: 0.0990566, g: 0.72629887, b: 1, a: 1}
     - _UVOffset: {r: 0, g: 0, b: 0, a: 0}
     - _UVScale: {r: 1, g: 1.12, b: 0, a: 0}
   m_BuildTextureStacks: []

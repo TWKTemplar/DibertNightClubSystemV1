@@ -4,6 +4,8 @@ Shader "UI/TemplarUIV2"
 {
     Properties
     {
+
+        _Transparent("Transparent", Range(0,1)) = 1
         _BaseContrast("Add Base Contrast", Range(0,1)) = 0
         [PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
         _Color1("start color", Color) = (1,1,1,1)
@@ -107,6 +109,7 @@ Shader "UI/TemplarUIV2"
                 float _UseColorLerp;
                 float _UseOverlayLerp;
                 float _BaseContrast;
+                float _Transparent;
                 uniform float3 _UVOffset;
                 uniform float3 _UVScale;
                 v2f vert(appdata_t v)
@@ -205,7 +208,9 @@ Shader "UI/TemplarUIV2"
 
                     //Bloom and Clamp Alpha
                     color += color * _Emission;
+                    color.a *= _Transparent;
                     color.a = saturate(color.a);
+
 
                     return color;
 

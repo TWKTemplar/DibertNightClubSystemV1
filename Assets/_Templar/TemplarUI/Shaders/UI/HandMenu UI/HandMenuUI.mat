@@ -7,12 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI C
+  m_Name: HandMenuUI
   m_Shader: {fileID: 4800000, guid: 7a48ab39d73f3a347b293d10dd19c67b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - UNITY_UI_ALPHACLIP
+  - UseOverlayTexture
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -29,13 +30,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OverlayTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: de7b41d2b91bf9848b436d2be2b70a91, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorMask: 8.77
-    - _Dimmer: 0
+    - _ColorMask: 15
+    - _Dimmer: 0.441
     - _DoSatOverride: 0
     - _Emission: 0.2
     - _EmissionTintOverride: 15
@@ -45,13 +46,16 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _UseOverlayTexture: 0
+    - _UseColorLerp: 1
+    - _UseLerp: 1
+    - _UseOverlayLerp: 1
+    - _UseOverlayTexture: 1
     - _UseUIAlphaClip: 1
     - _gradient: 4.43
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 1, g: 1, b: 1, a: 1}
-    - _Color2: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1: {r: 0, g: 0.5739576, b: 0.7924528, a: 1}
+    - _Color2: {r: 0.03604485, g: 0.24859968, b: 0.509434, a: 1}
     - _UVOffset: {r: 0, g: 0, b: 0, a: 0}
-    - _UVScale: {r: 1, g: 1, b: 0, a: 0}
+    - _UVScale: {r: 1, g: 1.12, b: 0, a: 0}
   m_BuildTextureStacks: []

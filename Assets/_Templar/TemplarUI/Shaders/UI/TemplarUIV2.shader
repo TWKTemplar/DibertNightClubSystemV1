@@ -4,11 +4,13 @@ Shader "UI/TemplarUIV2"
 {
     Properties
     {
+        _BaseContrast("Add Base Contrast", Range(0,1)) = 0
         [PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
         _Color1("start color", Color) = (1,1,1,1)
         _Color2("end color", Color) = (1,1,1,1)
         _UVOffset("UV offset", Vector) = (0,0,0,0)
         _UVScale("UV scale", Vector) = (1,1,1,0)
+        _UseColorLerp("Use Color Lerp", Range(0,1)) = 1
 
 
         _StencilComp("Stencil Comparison", Float) = 8
@@ -20,6 +22,7 @@ Shader "UI/TemplarUIV2"
         [Toggle(UseOverlayTexture)] _UseOverlayTexture("Use Overlay Texture", Float) = 0
         _OverlayTexture("Overlay Texture", 2D) = "white" {}
         _Dimmer("Dimmer", Range(0,1)) = 0
+        _UseOverlayLerp("Use Overlay Lerp", Range(0,1)) = 1
 
         _ColorMask("Color Mask", Float) = 15
             _Emission("Emission", Float) = 0 // Added By Templar
@@ -101,6 +104,9 @@ Shader "UI/TemplarUIV2"
                 float _Emission;
                 float _Dimmer;
                 float _EmissionTintOverride;
+                float _UseColorLerp;
+                float _UseOverlayLerp;
+                float _BaseContrast;
                 uniform float3 _UVOffset;
                 uniform float3 _UVScale;
                 v2f vert(appdata_t v)
@@ -154,12 +160,9 @@ Shader "UI/TemplarUIV2"
                 }
                 fixed4 frag(v2f IN) : SV_Target
                 {
-                    //float2 uv = (IN.texcoord);
                     half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
-                    //float3 outRGBToHSV = RGBToHSV(color.rgb);
-                    //float3 outHSVToRGB = HSVToRGB(float3(outRGBToHSV.r + uv.y, outRGBToHSV.g, outRGBToHSV.b));
-                    //color.rgb = clampVec01(outHSVToRGB.rgb);
-                    //float3 outHSVToRGB = HSVToRGB(float3((outRGBToHSV.x), outRGBToHSV.y, outRGBToHSV.z))
+
+                    color = saturate( lerp(color, pow(  (color*20) ,2 ), _BaseContrast));//Add contrast
 
                     #ifdef SaturateForClip
                     color.a *= max(color.r,max(color.g,color.b));
@@ -174,8 +177,9 @@ Shader "UI/TemplarUIV2"
 
                     
                     float2 uv = (IN.texcoord * _UVScale) + (_UVOffset);
-                    color = lerp(_Color1, _Color2, uv.y);
-
+                    float4 lerpedColor = lerp(_Color1, _Color2, uv.y);
+                    color = lerp(color, lerpedColor, _UseColorLerp);
+                    
                     #ifdef TintOverride
                     float GreyscaleOfTint = (saturate(IN.color.r + IN.color.g + IN.color.b));
                     float BaseLerp = (1 - IsWhite(IN.color));
@@ -191,9 +195,10 @@ Shader "UI/TemplarUIV2"
                     uvboi.x += _Time.x * speed;
                     uvboi.y += _Time.y * speed;
                     //uvboi.y *= _Time.y;
-                    color.rgb *= _Dimmer;
-                    float4 tempcol = tex2D(_OverlayTexture, uvboi);
-                    color.rgb *= 1-(tempcol*0.2f);
+                    float3 DimmedColor = color.rgb * _Dimmer;
+                    float3 ObjectSpaceColor = tex2D(_OverlayTexture, uvboi);
+                    color.rgb = lerp(color.rgb, DimmedColor * (1 - (ObjectSpaceColor * 0.2f)), _UseOverlayLerp);
+                    //_UseOverlayLerp
 
                     #endif
 
@@ -201,6 +206,7 @@ Shader "UI/TemplarUIV2"
                     //Bloom and Clamp Alpha
                     color += color * _Emission;
                     color.a = saturate(color.a);
+
                     return color;
 
                     //return color + (color * _Emission);

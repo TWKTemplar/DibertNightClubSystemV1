@@ -7,12 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HandMenuUI
+  m_Name: HandMenuUI Lower UI
   m_Shader: {fileID: 4800000, guid: 7a48ab39d73f3a347b293d10dd19c67b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - TintOverride
   - UNITY_UI_ALPHACLIP
   - UseOverlayTexture
   m_InvalidKeywords: []
@@ -36,9 +35,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BaseContrast: 0.479
     - _ColorMask: 15
-    - _Dimmer: 0.441
-    - _DoSatOverride: 1
+    - _Dimmer: 0.706
+    - _DoSatOverride: 0
     - _Emission: 0.2
     - _EmissionTintOverride: 15
     - _SaturateForClip: 0
@@ -47,6 +47,9 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
+    - _UseColorLerp: 0.69
+    - _UseLerp: 0.721
+    - _UseOverlayLerp: 0.892
     - _UseOverlayTexture: 1
     - _UseUIAlphaClip: 1
     - _gradient: 4.43

@@ -1,0 +1,275 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22203902d63dec94194fefc3e155c43b, type: 3}
+  m_Name: PlayerInfo
+  m_EditorClassIdentifier: 
+  serializedUdonProgramAsset: {fileID: 11400000, guid: f54b0506c750385468aecad9bd8bd8d1,
+    type: 2}
+  udonAssembly: ".data_start\r\n\r\n    .export playerCountDisplay\r\n    .export
+    playerListDisplay\r\n    .export localPlayerColor\r\n    .export masterPlayerColor\r\n
+    \   .export playerTotalCount\r\n    .sync playerTotalCount, none\r\n\r\n    __refl_const_intnl_udonTypeID:
+    %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n
+    \   playerTotalCount: %SystemInt32, null\r\n    localPlayerColor: %SystemString,
+    null\r\n    masterPlayerColor: %SystemString, null\r\n    playerCountDisplay:
+    %UnityEngineUITextArray, null\r\n    playerListDisplay: %UnityEngineUITextArray,
+    null\r\n    pl_i: %SystemInt32, null\r\n    onPlayerJoinedPlayer: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    onPlayerLeftPlayer: %VRCSDKBaseVRCPlayerApi, null\r\n    players:
+    %VRCSDKBaseVRCPlayerApiArray, null\r\n    __0_i_Int32: %SystemInt32, null\r\n
+    \   __0_countDisplay_Text: %UnityEngineUIText, null\r\n    __0_pt_Text: %UnityEngineUIText,
+    null\r\n    __0_p_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n    __0_player_VRCPlayerApi:
+    %VRCSDKBaseVRCPlayerApi, null\r\n    __1_player_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __2_const_intnl_SystemInt32: %SystemInt32, null\r\n    __3_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __4_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __5_const_intnl_SystemInt32: %SystemInt32, null\r\n    __6_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_const_intnl_SystemObject: %SystemObject, null\r\n
+    \   __0_const_intnl_SystemObjectArray: %SystemObjectArray, null\r\n    __1_const_intnl_SystemObjectArray:
+    %SystemObjectArray, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
+    \   __1_const_intnl_SystemString: %SystemString, null\r\n    __2_const_intnl_SystemString:
+    %SystemString, null\r\n    __3_const_intnl_SystemString: %SystemString, null\r\n
+    \   __4_const_intnl_SystemString: %SystemString, null\r\n    __5_const_intnl_SystemString:
+    %SystemString, null\r\n    __6_const_intnl_SystemString: %SystemString, null\r\n
+    \   __7_const_intnl_SystemString: %SystemString, null\r\n    __8_const_intnl_SystemString:
+    %SystemString, null\r\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
+    null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n    __1_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
+    null\r\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n
+    \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __3_intnl_SystemBoolean: %SystemBoolean, null\r\n    __4_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __5_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __2_intnl_SystemInt32: %SystemInt32, null\r\n    __3_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __4_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_SystemString:
+    %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __2_intnl_SystemString:
+    %SystemString, null\r\n    __3_intnl_SystemString: %SystemString, null\r\n    __4_intnl_SystemString:
+    %SystemString, null\r\n    __5_intnl_SystemString: %SystemString, null\r\n    __0_intnl_UnityEngineUIText:
+    %UnityEngineUIText, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
+    null\r\n    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n
+    \   __1_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n    __2_intnl_VRCSDKBaseVRCPlayerApi:
+    %VRCSDKBaseVRCPlayerApi, null\r\n    __3_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    __4_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n
+    \   __5_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n\r\n.data_end\r\n\r\n
+    \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
+    \       \r\n         # using UnityEngine.UI;\r\n        \r\n         # using VRC.SDKBase;\r\n
+    \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
+    PlayerInfo : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [Header(\"\u2605Develope
+    by KO_KIBA\u2605\")]\r\n        \r\n         # [Header(\"UI (Text)\")]\r\n        \r\n
+    \        # public Text[] playerCountDisplay;\r\n        \r\n         # public
+    Text[] playerListDisplay;\r\n        \r\n         # [Space(10)]\r\n        \r\n
+    \        # [Header(\"Player List Color\")]\r\n        \r\n         # public string
+    localPlayerColor = \"#ff3535\";\r\n        \r\n         # public string masterPlayerColor
+    = \"#ff7e00\";\r\n        \r\n         # private VRCPlayerApi[] players = new
+    VRCPlayerApi[100];\r\n        \r\n         # private int pl_i = 0;\r\n        \r\n
+    \        # [UdonSynced]\r\n        \r\n         # [HideInInspector]\r\n        \r\n
+    \        # public int playerTotalCount = 0;\r\n        \r\n         # public override
+    void OnPlayerJoined(VRCPlayerApi player)\r\n    .export _onPlayerJoined\r\n        \r\n
+    \   _onPlayerJoined:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       PUSH, onPlayerJoinedPlayer\r\n        PUSH, __0_player_VRCPlayerApi\r\n
+    \       COPY\r\n        \r\n         # {\r\n        \r\n         # playerTotalCount
+    = player.playerId;\r\n        PUSH, __0_player_VRCPlayerApi\r\n        PUSH, __0_intnl_SystemInt32\r\n
+    \       EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_playerId__SystemInt32\"\r\n        PUSH,
+    __0_intnl_SystemInt32\r\n        PUSH, playerTotalCount\r\n        COPY\r\n        \r\n
+    \        # UpdatePlayerCount();\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x000000E0\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # public override void OnPlayerLeft(VRCPlayerApi
+    player)\r\n    .export _onPlayerLeft\r\n        \r\n    _onPlayerLeft:\r\n        \r\n
+    \       PUSH, __0_const_intnl_SystemUInt32\r\n        PUSH, onPlayerLeftPlayer\r\n
+    \       PUSH, __1_player_VRCPlayerApi\r\n        COPY\r\n        \r\n         #
+    {\r\n        \r\n         # UpdatePlayerCount();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x000000E0\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # public void callUpdate()\r\n    .export callUpdate\r\n
+    \       \r\n    callUpdate:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # UpdatePlayerCount();\r\n        PUSH,
+    __2_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000000E0\r\n        PUSH,
+    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
+    __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n         # private void
+    UpdatePlayerCount()\r\n    UpdatePlayerCount:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # foreach(Text pt in playerListDisplay)\r\n
+    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, playerListDisplay\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       EXTERN, \"UnityEngineUITextArray.__get_Length__SystemInt32\"\r\n        PUSH,
+    __1_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH,
+    __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000001C4\r\n
+    \       PUSH, playerListDisplay\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
+    __0_intnl_UnityEngineUIText\r\n        EXTERN, \"UnityEngineUITextArray.__Get__SystemInt32__UnityEngineUIText\"\r\n
+    \       PUSH, __0_intnl_UnityEngineUIText\r\n        PUSH, __0_pt_Text\r\n        COPY\r\n
+    \       \r\n         # {\r\n        \r\n         # pt.text = \"\";\r\n        PUSH,
+    __0_pt_Text\r\n        PUSH, __3_const_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
+    \       PUSH, __1_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
+    \       PUSH, __3_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __3_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
+    \       COPY\r\n        JUMP, 0x0000010C\r\n        \r\n         # pl_i = 0;\r\n
+    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, pl_i\r\n        COPY\r\n
+    \       \r\n         # for (int i=0; i<=playerTotalCount; i++)\r\n        PUSH,
+    __1_const_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        COPY\r\n        PUSH,
+    __0_i_Int32\r\n        PUSH, __1_intnl_SystemInt32\r\n        COPY\r\n        PUSH,
+    __1_intnl_SystemInt32\r\n        PUSH, playerTotalCount\r\n        PUSH, __0_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemInt32.__op_LessThanOrEqual__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000970\r\n
+    \       \r\n         # {\r\n        \r\n         # if (VRCPlayerApi.GetPlayerById(i)
+    != null)\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       EXTERN, \"VRCSDKBaseVRCPlayerApi.__GetPlayerById__SystemInt32__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       COPY\r\n        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH,
+    __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __1_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000920\r\n
+    \       \r\n         # {\r\n        \r\n         # if (true)\r\n        PUSH,
+    __0_const_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000920\r\n        \r\n
+    \        # {\r\n        \r\n         # players[pl_i] = VRCPlayerApi.GetPlayerById(i);\r\n
+    \       PUSH, __0_i_Int32\r\n        PUSH, __2_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       EXTERN, \"VRCSDKBaseVRCPlayerApi.__GetPlayerById__SystemInt32__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, players\r\n        PUSH, pl_i\r\n        PUSH, __2_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       EXTERN, \"VRCSDKBaseVRCPlayerApiArray.__Set__SystemInt32_VRCSDKBaseVRCPlayerApi__SystemVoid\"\r\n
+    \       \r\n         # VRCPlayerApi p = players[pl_i];\r\n        PUSH, players\r\n
+    \       PUSH, pl_i\r\n        PUSH, __3_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN,
+    \"VRCSDKBaseVRCPlayerApiArray.__Get__SystemInt32__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, __3_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_p_VRCPlayerApi\r\n
+    \       COPY\r\n        \r\n         # if (players[pl_i] == Networking.LocalPlayer)\r\n
+    \       PUSH, players\r\n        PUSH, pl_i\r\n        PUSH, __4_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       EXTERN, \"VRCSDKBaseVRCPlayerApiArray.__Get__SystemInt32__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, __5_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, __4_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __5_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000634\r\n
+    \       \r\n         # {\r\n        \r\n         # foreach (Text pt in playerListDisplay)\r\n
+    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, playerListDisplay\r\n        PUSH, __3_intnl_SystemInt32\r\n
+    \       EXTERN, \"UnityEngineUITextArray.__get_Length__SystemInt32\"\r\n        PUSH,
+    __2_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n        PUSH,
+    __3_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000062C\r\n
+    \       PUSH, playerListDisplay\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH,
+    __0_intnl_UnityEngineUIText\r\n        EXTERN, \"UnityEngineUITextArray.__Get__SystemInt32__UnityEngineUIText\"\r\n
+    \       PUSH, __0_intnl_UnityEngineUIText\r\n        PUSH, __0_pt_Text\r\n        COPY\r\n
+    \       \r\n         # {\r\n        \r\n         # pt.text += string.Format(\"<size=25><color={5}>{0,-2:00}.
+    <color={4}>{1}</color>{2} [{3}]</color></size>\\n\", pl_i, p.isMaster ? \"(Master)\"
+    : \"\", p.displayName, p.IsUserInVR() ? \"VR\" : \"Desktop\", masterPlayerColor,
+    localPlayerColor);\r\n        PUSH, __0_p_VRCPlayerApi\r\n        PUSH, __4_intnl_SystemBoolean\r\n
+    \       EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_isMaster__SystemBoolean\"\r\n        PUSH,
+    __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000043C\r\n        PUSH,
+    __5_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n        COPY\r\n
+    \       JUMP, 0x00000450\r\n        PUSH, __3_const_intnl_SystemString\r\n        PUSH,
+    __0_intnl_SystemString\r\n        COPY\r\n        PUSH, __0_p_VRCPlayerApi\r\n
+    \       PUSH, __1_intnl_SystemString\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n
+    \       PUSH, __0_p_VRCPlayerApi\r\n        PUSH, __5_intnl_SystemBoolean\r\n
+    \       EXTERN, \"VRCSDKBaseVRCPlayerApi.__IsUserInVR__SystemBoolean\"\r\n        PUSH,
+    __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000004AC\r\n        PUSH,
+    __6_const_intnl_SystemString\r\n        PUSH, __2_intnl_SystemString\r\n        COPY\r\n
+    \       JUMP, 0x000004C0\r\n        PUSH, __7_const_intnl_SystemString\r\n        PUSH,
+    __2_intnl_SystemString\r\n        COPY\r\n        PUSH, __0_const_intnl_SystemObjectArray\r\n
+    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, pl_i\r\n        EXTERN,
+    \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n        PUSH,
+    __0_const_intnl_SystemObjectArray\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_SystemString\r\n        EXTERN, \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __0_const_intnl_SystemObjectArray\r\n        PUSH, __3_const_intnl_SystemInt32\r\n
+    \       PUSH, __1_intnl_SystemString\r\n        EXTERN, \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __0_const_intnl_SystemObjectArray\r\n        PUSH, __4_const_intnl_SystemInt32\r\n
+    \       PUSH, __2_intnl_SystemString\r\n        EXTERN, \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __0_const_intnl_SystemObjectArray\r\n        PUSH, __5_const_intnl_SystemInt32\r\n
+    \       PUSH, masterPlayerColor\r\n        EXTERN, \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __0_const_intnl_SystemObjectArray\r\n        PUSH, __6_const_intnl_SystemInt32\r\n
+    \       PUSH, localPlayerColor\r\n        EXTERN, \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __4_const_intnl_SystemString\r\n        PUSH, __0_const_intnl_SystemObjectArray\r\n
+    \       PUSH, __3_intnl_SystemString\r\n        EXTERN, \"SystemString.__Format__SystemString_SystemObjectArray__SystemString\"\r\n
+    \       PUSH, __0_pt_Text\r\n        PUSH, __4_intnl_SystemString\r\n        EXTERN,
+    \"UnityEngineUIText.__get_text__SystemString\"\r\n        PUSH, __4_intnl_SystemString\r\n
+    \       PUSH, __3_intnl_SystemString\r\n        PUSH, __5_intnl_SystemString\r\n
+    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __0_pt_Text\r\n        PUSH, __5_intnl_SystemString\r\n        EXTERN,
+    \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __4_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       COPY\r\n        JUMP, 0x00000394\r\n        JUMP, 0x000008D8\r\n        \r\n
+    \        # else\r\n        \r\n         # {\r\n        \r\n         # foreach
+    (Text pt in playerListDisplay)\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
+    \       PUSH, __2_intnl_SystemInt32\r\n        COPY\r\n        PUSH, playerListDisplay\r\n
+    \       PUSH, __3_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineUITextArray.__get_Length__SystemInt32\"\r\n
+    \       PUSH, __2_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000008D8\r\n
+    \       PUSH, playerListDisplay\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH,
+    __0_intnl_UnityEngineUIText\r\n        EXTERN, \"UnityEngineUITextArray.__Get__SystemInt32__UnityEngineUIText\"\r\n
+    \       PUSH, __0_intnl_UnityEngineUIText\r\n        PUSH, __0_pt_Text\r\n        COPY\r\n
+    \       \r\n         # {\r\n        \r\n         # pt.text += string.Format(\"<size=20>{0,-2:00}.
+    <color={4}>{1}</color>{2} [{3}]</size>\\n\", pl_i, p.isMaster ? \"(Master)\" :
+    \"\", p.displayName, p.IsUserInVR() ? \"VR\" : \"Desktop\", masterPlayerColor);\r\n
+    \       PUSH, __0_p_VRCPlayerApi\r\n        PUSH, __4_intnl_SystemBoolean\r\n
+    \       EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_isMaster__SystemBoolean\"\r\n        PUSH,
+    __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000708\r\n        PUSH,
+    __5_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n        COPY\r\n
+    \       JUMP, 0x0000071C\r\n        PUSH, __3_const_intnl_SystemString\r\n        PUSH,
+    __0_intnl_SystemString\r\n        COPY\r\n        PUSH, __0_p_VRCPlayerApi\r\n
+    \       PUSH, __1_intnl_SystemString\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n
+    \       PUSH, __0_p_VRCPlayerApi\r\n        PUSH, __5_intnl_SystemBoolean\r\n
+    \       EXTERN, \"VRCSDKBaseVRCPlayerApi.__IsUserInVR__SystemBoolean\"\r\n        PUSH,
+    __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000778\r\n        PUSH,
+    __6_const_intnl_SystemString\r\n        PUSH, __2_intnl_SystemString\r\n        COPY\r\n
+    \       JUMP, 0x0000078C\r\n        PUSH, __7_const_intnl_SystemString\r\n        PUSH,
+    __2_intnl_SystemString\r\n        COPY\r\n        PUSH, __1_const_intnl_SystemObjectArray\r\n
+    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, pl_i\r\n        EXTERN,
+    \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n        PUSH,
+    __1_const_intnl_SystemObjectArray\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_SystemString\r\n        EXTERN, \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __1_const_intnl_SystemObjectArray\r\n        PUSH, __3_const_intnl_SystemInt32\r\n
+    \       PUSH, __1_intnl_SystemString\r\n        EXTERN, \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __1_const_intnl_SystemObjectArray\r\n        PUSH, __4_const_intnl_SystemInt32\r\n
+    \       PUSH, __2_intnl_SystemString\r\n        EXTERN, \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __1_const_intnl_SystemObjectArray\r\n        PUSH, __5_const_intnl_SystemInt32\r\n
+    \       PUSH, masterPlayerColor\r\n        EXTERN, \"SystemObjectArray.__Set__SystemInt32_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __8_const_intnl_SystemString\r\n        PUSH, __1_const_intnl_SystemObjectArray\r\n
+    \       PUSH, __3_intnl_SystemString\r\n        EXTERN, \"SystemString.__Format__SystemString_SystemObjectArray__SystemString\"\r\n
+    \       PUSH, __0_pt_Text\r\n        PUSH, __4_intnl_SystemString\r\n        EXTERN,
+    \"UnityEngineUIText.__get_text__SystemString\"\r\n        PUSH, __4_intnl_SystemString\r\n
+    \       PUSH, __3_intnl_SystemString\r\n        PUSH, __5_intnl_SystemString\r\n
+    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __0_pt_Text\r\n        PUSH, __5_intnl_SystemString\r\n        EXTERN,
+    \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __4_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       COPY\r\n        JUMP, 0x00000660\r\n        \r\n         # pl_i++;\r\n
+    \       PUSH, pl_i\r\n        PUSH, __2_intnl_SystemInt32\r\n        COPY\r\n
+    \       PUSH, pl_i\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
+    __3_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __3_intnl_SystemInt32\r\n        PUSH, pl_i\r\n        COPY\r\n
+    \       PUSH, __0_i_Int32\r\n        PUSH, __2_intnl_SystemInt32\r\n        COPY\r\n
+    \       PUSH, __0_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
+    __3_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __3_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        COPY\r\n
+    \       JUMP, 0x000001EC\r\n        \r\n         # foreach (Text countDisplay
+    in playerCountDisplay)\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
+    __1_intnl_SystemInt32\r\n        COPY\r\n        PUSH, playerCountDisplay\r\n
+    \       PUSH, __2_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineUITextArray.__get_Length__SystemInt32\"\r\n
+    \       PUSH, __1_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A6C\r\n
+    \       PUSH, playerCountDisplay\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
+    __0_intnl_UnityEngineUIText\r\n        EXTERN, \"UnityEngineUITextArray.__Get__SystemInt32__UnityEngineUIText\"\r\n
+    \       PUSH, __0_intnl_UnityEngineUIText\r\n        PUSH, __0_countDisplay_Text\r\n
+    \       COPY\r\n        \r\n         # {\r\n        \r\n         # countDisplay.text
+    = pl_i.ToString();\r\n        PUSH, pl_i\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_countDisplay_Text\r\n
+    \       PUSH, __0_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
+    \       PUSH, __1_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
+    \       PUSH, __3_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __3_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
+    \       COPY\r\n        JUMP, 0x0000099C\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n.code_end\r\n"
+  assemblyError: 
